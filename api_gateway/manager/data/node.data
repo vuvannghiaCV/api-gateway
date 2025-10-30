@@ -1,0 +1,8 @@
+module.exports = [
+    {
+        "name": "Kong API Gateway",
+        "type": "default",
+        "kong_admin_url": "http://api_gateway:8001",
+        "health_checks": false,
+    }
+]

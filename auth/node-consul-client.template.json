@@ -1,0 +1,13 @@
+{
+  "node_name": "$SERVICE_NAME-client-$HOSTNAME",
+  "server": false,
+  "datacenter": "dc1",
+  "data_dir": "/consul/data",
+  "log_level": "INFO",
+  "bind_addr": "{{ GetPrivateIP }}",
+  "client_addr": "{{ GetPrivateInterfaces | exclude \"type\" \"ipv6\" | join \"address\" \" \" }} {{ GetAllInterfaces | include \"flags\" \"loopback\" | join \"address\" \" \" }}",
+  "advertise_addr": "{{ GetInterfaceIP \"en0\"}}",
+  "retry_join": [
+    "services_discovery"
+  ]
+}
